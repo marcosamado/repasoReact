@@ -1,4 +1,5 @@
-import { useState } from "react"
+import Swal from 'sweetalert2';
+import { useState } from "react";
 
 const Formulario = () => {
 
@@ -18,7 +19,19 @@ const Formulario = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(title,description,priority,state);
+
+        if(title.trim() === "" || description.trim() === "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Debes rellenar todos los campos',
+                footer: '<a href="">Why do I have this issue?</a>'
+            })
+        }else {
+            console.log(title,description,priority,state);
+        }
+
+
     }
 
 const handleChange = (e) => {
@@ -34,7 +47,7 @@ const handleChange = (e) => {
 
 return (
     <>
-        <form onSubmit={handleSubmit} className="form-control mt-5">
+        <form onSubmit={handleSubmit} className="form-control mt-5 mb-5">
             <input
                 type="text"
                 name="title"
