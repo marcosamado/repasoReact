@@ -31,10 +31,14 @@ const App = () => {
 
   const [tareas,setTareas] = useState(initialStateTareas);
 
+  const agregarTarea = (tarea) => {
+    setTareas([...tareas, tarea])
+  }
+
   return (
     <>
     <h1>Todo App con React</h1>
-      <Formulario />
+      <Formulario addTarea={agregarTarea}/>
       <Tareas tareas={tareas}/>
     </>
   );
