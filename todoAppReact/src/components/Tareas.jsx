@@ -1,12 +1,12 @@
 import Tarea from "./Tarea";
 
-const Tareas = ({tareas}) => {
+const Tareas = ({tareas,deleteTarea,updateTarea}) => {
     return (
-        <div className="mt-5">
+        <div className="container mt-5">
             <h2 className="text-center">Tareas</h2>
-            <ul>
+            <ul className="list-group">
                 {tareas.map(tarea => (
-                    <Tarea key={tarea.id} tarea={tarea}/>
+                    <Tarea key={tarea.id} tarea={tarea} deleteTarea={deleteTarea} updateTarea={updateTarea}/>
                 ))}
             </ul>
         </div>
